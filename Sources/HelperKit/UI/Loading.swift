@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol LoadingDisplayer {
+public protocol LoadingDisplayer {
     func showLoading()
     func hideLoading()
 }

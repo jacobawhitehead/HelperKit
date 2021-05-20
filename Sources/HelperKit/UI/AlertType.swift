@@ -7,20 +7,20 @@
 
 import UIKit
 
-enum AlertComponent {
+public enum AlertComponent {
     case cancel
     case okay
     case action(title: String, style: UIAlertAction.Style, action: () -> Void)
     case textField((UITextField) -> Void)
 }
 
-struct AlertType {
-    let title: String?
-    let message: String?
-    var components: [AlertComponent]
+public struct AlertType {
+    public let title: String?
+    public let message: String?
+    public var components: [AlertComponent]
 
     @discardableResult
-    mutating func addComponent(_ component: AlertComponent) -> Self {
+    public mutating func addComponent(_ component: AlertComponent) -> Self {
         components.append(component)
         return self
     }
@@ -29,7 +29,7 @@ struct AlertType {
 
 // MARK: - Helpers
 
-extension AlertType {
+public extension AlertType {
 
     func alert() -> UIAlertController {
         createController(isAlert: true)
@@ -62,15 +62,5 @@ extension AlertType {
             controller.addTextField(configurationHandler: setup)
         }
     }
-
-}
-
-// MARK: Standard types
-
-extension AlertType {
-
-    static var genericError = AlertType(title: "Something went wrong",
-                                   message: "Please try again later",
-                                   components: [.okay])
 
 }

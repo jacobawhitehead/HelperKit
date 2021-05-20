@@ -7,6 +7,6 @@
 
 import UIKit
 
-enum ViewState {
+public enum ViewState {
     case none, initialLoading, loading, complete, incomplete
 }
