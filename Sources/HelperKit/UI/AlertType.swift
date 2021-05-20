@@ -19,6 +19,12 @@ public struct AlertType {
     public let message: String?
     public var components: [AlertComponent]
 
+    public init(title: String?, message: String? = nil, components: [AlertComponent] = []) {
+        self.title = title
+        self.message = message
+        self.components = components
+    }
+
     @discardableResult
     public mutating func addComponent(_ component: AlertComponent) -> Self {
         components.append(component)
